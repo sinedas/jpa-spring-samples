@@ -40,13 +40,7 @@ public class AggregationSampleTest extends  BaseTest{
 		claimsDao.save(claim3);
 		
 	}
-	
-	@After
-	public void tearDown() {
-		entityManager.createQuery("delete Person p").executeUpdate();
-		entityManager.createQuery("delete Claim c").executeUpdate();	
-	}
-	
+		
 	/**
 	 * {@link Claim} entities in notification and open states are counted.
 	 */

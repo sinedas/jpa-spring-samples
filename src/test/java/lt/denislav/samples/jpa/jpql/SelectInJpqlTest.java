@@ -43,12 +43,6 @@ public class SelectInJpqlTest extends BaseTest {
 		claimsDao.save(claim);
 	}
 	
-	@After
-	public void tearDown() {
-		entityManager.createQuery("delete Person p").executeUpdate();
-		entityManager.createQuery("delete Claim c").executeUpdate();
-	}
-	
 	/**
 	 * Change hibernate.max_fetch_depth to 0 and see 
 	 * how sql statements change.
