@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import lt.denislav.samples.jpa.BaseTest;
 import lt.denislav.samples.jpa.domain.Claim;
+import lt.denislav.samples.jpa.domain.ClaimDetail;
 import lt.denislav.samples.jpa.domain.ClaimStatus;
 import lt.denislav.samples.jpa.domain.Person;
 import lt.denislav.samples.jpa.domain.PersonDetail;
@@ -32,6 +33,7 @@ public class SelectInJpqlTest extends BaseTest {
 	public void prepareClaims() {
 		for (int i = 0; i < 2; i++) {
 			Claim claim = new Claim();
+			claim.setDetail(new ClaimDetail("bla"));
 			claim.setStatus(ClaimStatus.NOTIFICATION);			
 			claim.getPersons().add(new Person("John").withPersonDetail(new PersonDetail()));
 			claimsDao.save(claim);
@@ -107,6 +109,7 @@ public class SelectInJpqlTest extends BaseTest {
 		assertThat(list.size(), equalTo(2));
 	}
 	
+	
 	/**
 	 * Usage of new constructor in jpql.
 	 */
@@ -120,6 +123,21 @@ public class SelectInJpqlTest extends BaseTest {
 		LOG.debug("Found claims dto: " + list);
 		
 		assertThat(list.size(), equalTo(3));
+	}
+	
+	/**
+	 * Usage of new constructor in jpql.
+	 */
+	@Transactional
+	@Test
+	public void bla() {
+		Query query = entityManager.createQuery("select d from Claim c left join c.detail d");
+				
+		@SuppressWarnings("unchecked")
+		List list = query.getResultList();
+		LOG.debug("Found claims dto: " + list);
+		
+		//assertThat(list.size(), equalTo(3));
 	}
 	
 }

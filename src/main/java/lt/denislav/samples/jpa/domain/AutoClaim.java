@@ -7,8 +7,8 @@ import javax.persistence.Entity;
  * 
  * Entity used in samples to show inheritance usage with JPA.
  */
-@Entity
-public class AutoClaim extends Claim {
+//@Entity
+public class AutoClaim  {
 
 	/**
 	 * Number of automobile.

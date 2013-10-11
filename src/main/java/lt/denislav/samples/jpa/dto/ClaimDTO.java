@@ -20,6 +20,8 @@ public class ClaimDTO {
 	 * Number of a {@link ThirdParty}.
 	 */
 	private String thirdPartyNumber;
+	
+	private
 
 	public ClaimDTO(ClaimStatus status) {
 		super();

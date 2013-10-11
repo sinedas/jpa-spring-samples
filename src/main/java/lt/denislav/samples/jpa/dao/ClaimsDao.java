@@ -56,4 +56,6 @@ public class ClaimsDao {
 	public void delete(Long id) {
 		entityManager.remove( entityManager.find(Claim.class, id));
 	}
+	
+	
 }
