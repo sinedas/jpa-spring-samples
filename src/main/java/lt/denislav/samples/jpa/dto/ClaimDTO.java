@@ -20,11 +20,7 @@ public class ClaimDTO {
 	 * Number of a {@link ThirdParty}.
 	 */
 	private String thirdPartyNumber;
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> parent of 8d677f3... Added .travis.yml
 	public ClaimDTO(ClaimStatus status) {
 		super();
 		this.status = status;
