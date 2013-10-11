@@ -21,8 +21,6 @@ public class ClaimDTO {
 	 */
 	private String thirdPartyNumber;
 	
-	private
-
 	public ClaimDTO(ClaimStatus status) {
 		super();
 		this.status = status;
