@@ -26,7 +26,7 @@ public class TransactionPropagationTest extends BaseTest {
 	
 	Long claimId;
 	
-	@Before
+	@BeforeTransaction
 	public void prepareClaim() {
 		LOG.debug("[prepareClaim] Preparing claims");
 		
@@ -38,17 +38,11 @@ public class TransactionPropagationTest extends BaseTest {
 		claimId = claim.getId();
 	}
 	
-	
-	
-	
-	@Test
-	public void findWithouTransaction() {
-		Query query = entityManager.createQuery("select c from Claim c");
-		Claim claim = (Claim)query.getResultList().get(0);
-				
-		claim.setStatus(ClaimStatus.CLOSED);		
+	@AfterTransaction
+	public void clearClaims() {
+		claimsDao.delete(claimId);
 	}
-	
+		
 	/**
 	 * Exception is thrown on flush.
 	 */

@@ -8,8 +8,8 @@ import javax.persistence.Entity;
  * 
  * Entity used in samples to show inheritance usage in JPA. 
  */
-//@Entity
-public class HomeClaim {
+@Entity
+public class HomeClaim extends Claim {
 
 	/**
 	 * Address of a home property.
